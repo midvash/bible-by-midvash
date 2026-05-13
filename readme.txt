@@ -3,7 +3,7 @@ Contributors: netogregorio
 Tags: bible, biblia, reference, biblical, tooltip, multilingual
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 0.0.6
+Stable tag: 0.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +88,10 @@ Go to Settings > Midvash and use the color picker.
 
 == Changelog ==
 
+= 0.1.0 =
+* Added translations for 9 locales: Portuguese (Brazil), English, Spanish, French, German, Italian, Russian, Korean, and Chinese (Simplified).
+* Refreshed `.pot` template to match the current source strings.
+
 = 0.0.1 =
 * Initial release of Bible by Midvash.
 * Auto-detects Bible references in posts and pages, transforming them into links with verse tooltips on hover.
@@ -98,6 +102,9 @@ Go to Settings > Midvash and use the color picker.
 * Distributed via https://wordpress.midvash.com.
 
 == Upgrade Notice ==
+
+= 0.1.0 =
+Adds translations for 9 locales (pt_BR, en_US, es_ES, fr_FR, de_DE, it_IT, ru_RU, ko_KR, zh_CN).
 
 = 0.0.1 =
 First release.
