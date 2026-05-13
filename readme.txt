@@ -3,7 +3,7 @@ Contributors: netogregorio
 Tags: bible, biblia, reference, biblical, tooltip, multilingual
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -49,6 +49,12 @@ Midvash is a plugin that detects Bible references within your WordPress post con
 * **Portuguese (Brazil)** - Default version: NVT
 * **English** - Default version: NLT
 * **Spanish** - Default version: NTV
+* **French** - Default version: LSG
+* **German** - Default version: LUTH1912
+* **Italian** - Default version: NRI
+* **Russian** - Default version: SYNODAL
+* **Korean** - Default version: KOR
+* **Chinese (Simplified)** - Default version: CUV
 
 == External services ==
 
@@ -88,6 +94,10 @@ Go to Settings > Midvash and use the color picker.
 
 == Changelog ==
 
+= 0.2.0 =
+* Added full support for 6 new content locales: French, German, Italian, Russian, Korean, and Chinese (Simplified). All 9 locales (pt-br, en, es, fr, de, it, ru, ko, zh) now have working book detection, localized URLs, and matching Bible versions.
+* Book data is now generated from the Midvash API via `scripts/sync-books.ts`, eliminating ~500 lines of hardcoded data.
+
 = 0.1.0 =
 * Added translations for 9 locales: Portuguese (Brazil), English, Spanish, French, German, Italian, Russian, Korean, and Chinese (Simplified).
 * Refreshed `.pot` template to match the current source strings.
@@ -102,6 +112,9 @@ Go to Settings > Midvash and use the color picker.
 * Distributed via https://wordpress.midvash.com.
 
 == Upgrade Notice ==
+
+= 0.2.0 =
+Adds full content support for French, German, Italian, Russian, Korean and Chinese.
 
 = 0.1.0 =
 Adds translations for 9 locales (pt_BR, en_US, es_ES, fr_FR, de_DE, it_IT, ru_RU, ko_KR, zh_CN).
