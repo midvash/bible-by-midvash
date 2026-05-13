@@ -399,6 +399,121 @@ body.theme-dark .bbm-tooltip__loader,
 }
 
 /* ===========================
+   Bible Verse Block (frontend)
+   =========================== */
+
+.bbm-verse {
+    margin: 1.5em 0;
+    padding: 20px 24px;
+    border-left: 4px solid #B17027;
+    background: rgba(177, 112, 39, 0.05);
+    border-radius: 0 8px 8px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.8;
+}
+
+.bbm-verse__text {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-style: italic;
+    color: inherit;
+}
+
+.bbm-verse__reference {
+    display: block;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #B17027;
+}
+
+.bbm-verse__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bbm-verse__link:hover {
+    text-decoration: underline;
+}
+
+.bbm-verse__version {
+    font-weight: 400;
+    font-size: 11px;
+    padding: 1px 6px;
+    background: rgba(177, 112, 39, 0.12);
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+}
+
+.bbm-verse--error {
+    font-style: italic;
+    color: #999;
+    font-size: 13px;
+    border-left-color: #ccc;
+    background: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-verse {
+        background: rgba(177, 112, 39, 0.08);
+    }
+    .bbm-verse__reference {
+        color: #F0CE8A;
+    }
+    .bbm-verse__version {
+        background: rgba(240, 206, 138, 0.15);
+    }
+}
+
+/* Block editor preview */
+.bbm-verse-editor {
+    border: 1px dashed #B17027;
+    border-radius: 6px;
+    padding: 12px 16px;
+    background: rgba(177, 112, 39, 0.04);
+}
+
+.bbm-verse-editor__preview,
+.bbm-verse-editor__empty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    flex-wrap: wrap;
+}
+
+.bbm-verse-editor__icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.bbm-verse-editor__ref {
+    font-size: 15px;
+    color: #333;
+}
+
+.bbm-verse-editor__version {
+    font-size: 11px;
+    padding: 2px 6px;
+    background: rgba(177, 112, 39, 0.15);
+    border-radius: 3px;
+    color: #B17027;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.bbm-verse-editor__note {
+    font-size: 12px;
+    color: #888;
+    width: 100%;
+    margin-top: 4px;
+}
+
+/* ===========================
    Verse of the Day Widget
    =========================== */
 

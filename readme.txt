@@ -3,7 +3,7 @@ Contributors: netogregorio
 Tags: bible, biblia, reference, biblical, tooltip, multilingual
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 0.4.0
+Stable tag: 0.5.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,7 @@ Midvash is a plugin that detects Bible references within your WordPress post con
 
 * Automatic detection of Bible references
 * **Tooltip with verse text** (via API)
+* **Gutenberg block** to insert any specific verse directly in the editor
 * **Verse of the Day** widget and `[bbm_votd]` shortcode
 * **Schema.org Quotation** structured data on every reference link
 * **Multi-language support** (9 languages: Portuguese, English, Spanish, French, German, Italian, Russian, Korean, Chinese)
@@ -108,6 +109,9 @@ Go to Settings > Midvash and use the color picker.
 
 == Changelog ==
 
+= 0.5.0 =
+* Added **Gutenberg block** `Bible Verse — Midvash` (category: Text). Authors can insert any Bible reference directly into the block editor; the verse is fetched and rendered server-side by PHP on each page load. Supports all 9 locales, version and language overrides per-block, show/hide reference, and optional link to Midvash. Schema.org `Quotation` microdata included in output. No build step required.
+
 = 0.4.0 =
 * Added **Verse of the Day** widget and `[bbm_votd]` shortcode powered by the Midvash API. Place the widget in any sidebar or use `[bbm_votd]` anywhere in your content. Supports all 9 locales, per-widget language and version overrides, and caches the daily verse for 24 hours.
 
@@ -135,6 +139,9 @@ Go to Settings > Midvash and use the color picker.
 * Distributed via https://wordpress.midvash.com.
 
 == Upgrade Notice ==
+
+= 0.5.0 =
+Adds the Gutenberg "Bible Verse" block — insert any verse directly into the block editor with version, language, and style controls.
 
 = 0.4.0 =
 Adds the Verse of the Day widget and `[bbm_votd]` shortcode — place daily verses in sidebars or posts with a single line.
