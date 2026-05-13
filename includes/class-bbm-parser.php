@@ -189,7 +189,7 @@ class BBM_Parser
         $target = $new_tab ? ' target="_blank" rel="noopener noreferrer"' : '';
 
         return sprintf(
-            '<a href="%s" class="%s" data-midvash-ref="%s" data-midvash-book="%d"%s title="%s">%s</a>',
+            '<a href="%s" class="%s" data-midvash-ref="%s" data-midvash-book="%d"%s title="%s" itemscope itemtype="https://schema.org/Quotation"><span itemprop="name">%s</span></a>',
             esc_url($url),
             esc_attr($css_class),
             esc_attr($api_ref),
