@@ -1,0 +1,420 @@
+/**
+ * Bible by Midvash - Styles
+ * 
+ * Estilos para links de referências bíblicas e tooltips
+ * 
+ * @package Bible_by_Midvash
+ * @version 1.0.0
+ */
+
+/* ===========================
+   Base Link Styles
+   =========================== */
+
+.bbm-link {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.bbm-link:hover {
+    opacity: 0.85;
+}
+
+.bbm-link:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* ===========================
+   Tooltip Container
+   =========================== */
+
+.bbm-tooltip {
+    position: absolute;
+    z-index: 999999;
+    max-width: 380px;
+    min-width: 280px;
+    padding: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333333;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.bbm-tooltip.bbm-tooltip--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.bbm-tooltip.bbm-tooltip--above {
+    transform: translateY(-8px);
+}
+
+.bbm-tooltip.bbm-tooltip--above.bbm-tooltip--visible {
+    transform: translateY(0);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip {
+        background: #1e1e1e;
+        color: #e0e0e0;
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* WordPress Dark Mode (via body class) */
+body.dark-mode .bbm-tooltip,
+body.theme-dark .bbm-tooltip,
+.wp-dark-mode .bbm-tooltip {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================
+   Tooltip Header
+   =========================== */
+
+.bbm-tooltip__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #B17027 0%, #5B4D33 100%);
+    border-radius: 11px 11px 0 0;
+    color: #ffffff;
+}
+
+.bbm-tooltip__logo {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+.bbm-tooltip__reference {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    flex: 1;
+}
+
+.bbm-tooltip__version-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.bbm-tooltip__version-link:hover {
+    opacity: 0.8;
+}
+
+.bbm-tooltip__version {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+/* ===========================
+   Tooltip Content
+   =========================== */
+
+.bbm-tooltip__content {
+    padding: 16px;
+}
+
+.bbm-tooltip__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: inherit;
+}
+
+.bbm-tooltip__text em,
+.bbm-tooltip__text i {
+    font-style: italic;
+}
+
+/* Verse Numbers (when showing multiple verses) */
+.bbm-tooltip__verse-number {
+    font-weight: 700;
+    font-size: 11px;
+    color: #B17027;
+    margin-right: 4px;
+    vertical-align: super;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip__verse-number {
+        color: #F0CE8A;
+    }
+}
+
+body.dark-mode .bbm-tooltip__verse-number,
+body.theme-dark .bbm-tooltip__verse-number,
+.wp-dark-mode .bbm-tooltip__verse-number {
+    color: #F0CE8A;
+}
+
+/* ===========================
+   Tooltip Footer
+   =========================== */
+
+.bbm-tooltip__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 0 0 11px 11px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip__footer {
+        border-top-color: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+    }
+}
+
+body.dark-mode .bbm-tooltip__footer,
+body.theme-dark .bbm-tooltip__footer,
+.wp-dark-mode .bbm-tooltip__footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.bbm-tooltip__read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #B17027;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bbm-tooltip__read-more:hover {
+    color: #B17027;
+    text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip__read-more {
+        color: #F0CE8A;
+    }
+    
+    .bbm-tooltip__read-more:hover {
+        color: #E8B45A;
+    }
+}
+
+body.dark-mode .bbm-tooltip__read-more,
+body.theme-dark .bbm-tooltip__read-more,
+.wp-dark-mode .bbm-tooltip__read-more {
+    color: #F0CE8A;
+}
+
+.bbm-tooltip__read-more-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* ===========================
+   Loading State
+   =========================== */
+
+.bbm-tooltip--loading .bbm-tooltip__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.bbm-tooltip__loader {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(177, 112, 39, 0.15);
+    border-top-color: #B17027;
+    border-radius: 50%;
+    animation: bbm-spin 0.8s linear infinite;
+}
+
+@keyframes bbm-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip__loader {
+        border-color: rgba(240, 206, 138, 0.2);
+        border-top-color: #F0CE8A;
+    }
+}
+
+body.dark-mode .bbm-tooltip__loader,
+body.theme-dark .bbm-tooltip__loader,
+.wp-dark-mode .bbm-tooltip__loader {
+    border-color: rgba(240, 206, 138, 0.2);
+    border-top-color: #F0CE8A;
+}
+
+/* ===========================
+   Error State
+   =========================== */
+
+.bbm-tooltip--error .bbm-tooltip__content {
+    text-align: center;
+    color: #B17027;
+}
+
+.bbm-tooltip__error-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    fill: #B17027;
+}
+
+.bbm-tooltip__error-message {
+    font-size: 13px;
+    margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bbm-tooltip--error .bbm-tooltip__content {
+        color: #E8B45A;
+    }
+    
+    .bbm-tooltip__error-icon {
+        fill: #E8B45A;
+    }
+}
+
+/* ===========================
+   Arrow/Pointer
+   =========================== */
+
+.bbm-tooltip::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    border: inherit;
+    border-right: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+}
+
+.bbm-tooltip--below::before {
+    top: -7px;
+}
+
+.bbm-tooltip--above::before {
+    bottom: -7px;
+    transform: rotate(-135deg);
+}
+
+/* ===========================
+   Accessibility
+   =========================== */
+
+.bbm-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .bbm-tooltip {
+        transition: none;
+    }
+    
+    .bbm-tooltip__loader {
+        animation: none;
+    }
+    
+    .bbm-link {
+        transition: none;
+    }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media screen and (max-width: 480px) {
+    .bbm-tooltip {
+        max-width: calc(100vw - 32px);
+        min-width: 260px;
+    }
+    
+    .bbm-tooltip__header {
+        padding: 10px 14px;
+    }
+    
+    .bbm-tooltip__content {
+        padding: 14px;
+    }
+    
+    .bbm-tooltip__text {
+        font-size: 13px;
+    }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+    .bbm-tooltip {
+        display: none !important;
+    }
+    
+    .bbm-link {
+        color: inherit !important;
+        text-decoration: underline !important;
+    }
+    
+    .bbm-link::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-style: italic;
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <title>Bible by Midvash</title>
+
+  <!-- Midvash hexagon mark -->
+  <g transform="translate(0, 0) scale(0.8)">
+    <path d="M100,16 L138.105,38 L138.105,82 L100,104 L61.895,82 L61.895,38 Z" fill="#F0CE8A"/>
+    <path d="M61.895,59.56 L100,81.56 L100,125.56 L61.895,147.56 L23.79,125.56 L23.79,81.56 Z" fill="#E8B45A"/>
+    <path d="M138.105,59.56 L176.21,81.56 L176.21,125.56 L138.105,147.56 L100,125.56 L100,81.56 Z" fill="#B17027"/>
+  </g>
+
+  <!-- Wordmark "Bible by Midvash" -->
+  <g transform="translate(180, 0)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
+    <text x="0" y="62" font-size="22" font-weight="500" fill="#5B4D33" letter-spacing="2">BIBLE BY</text>
+    <text x="0" y="120" font-size="58" font-weight="800" fill="#1F1A12" letter-spacing="-1.5">Midvash</text>
+  </g>
+</svg>

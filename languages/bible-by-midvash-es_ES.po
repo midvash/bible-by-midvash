@@ -1,0 +1,176 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bible by Midvash 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 15:15-0300\n"
+"PO-Revision-Date: 2026-01-01 15:15-0300\n"
+"Last-Translator: Midvash Team\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: bible-by-midvash\n"
+
+msgid "Verse currently unavailable"
+msgstr "Versículo no disponible en este momento"
+
+msgid "General Settings"
+msgstr "Configuraciones Generales"
+
+msgid "Cache and Performance"
+msgstr "Caché y Rendimiento"
+
+msgid "Bible Version"
+msgstr "Versión de la Biblia"
+
+msgid "Link Color"
+msgstr "Color del Enlace"
+
+msgid "Open in new tab"
+msgstr "Abrir en una pestaña nueva"
+
+msgid "Show version in tooltip"
+msgstr "Mostrar versión en el tooltip"
+
+msgid "Enable cache"
+msgstr "Habilitar caché"
+
+msgid "Cache duration (seconds)"
+msgstr "Duración del caché (segundos)"
+
+msgid "API Timeout (seconds)"
+msgstr "Tiempo de espera de la API (segundos)"
+
+msgid "Auto-linking Settings"
+msgstr "Configuración de Enlaces Automáticos"
+
+msgid "Link the word \"Bíblia\""
+msgstr "Enlazar la palabra \"Biblia\""
+
+msgid "Link Bible version names"
+msgstr "Enlazar nombres de versiones"
+
+msgid "Link dictionary terms"
+msgstr "Enlazar términos del diccionario"
+
+msgid "Link biblical characters"
+msgstr "Enlazar personajes bíblicos"
+
+msgid "Link Bible book names"
+msgstr "Enlazar nombres de libros"
+
+msgid "Configure how Bible references will be displayed."
+msgstr "Configure cómo se mostrarán las referencias bíblicas."
+
+msgid "Configure cache settings to improve tooltip performance."
+msgstr "Configure los ajustes de caché para mejorar el rendimiento de los tooltips."
+
+msgid "Portuguese"
+msgstr "Portugués"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Select the Bible version for links and tooltips. Versions are fetched dynamically from Midvash."
+msgstr "Seleccione la versión de la Biblia para los enlaces y tooltips. Las versiones se obtienen dinámicamente de Midvash."
+
+msgid "Color of the generated links."
+msgstr "Color de los enlaces generados."
+
+msgid "Open links in a new browser tab"
+msgstr "Abrir enlaces en una nueva pestaña del navegador"
+
+msgid "Display Bible version in tooltip"
+msgstr "Mostrar la versión de la Biblia en el tooltip"
+
+msgid "Store verses in cache to improve performance"
+msgstr "Almacenar versículos en caché para mejorar el rendimiento"
+
+msgid "Time in seconds (default: 3600 = 1 hour)."
+msgstr "Tiempo en segundos (por defecto: 3600 = 1 hora)."
+
+msgid "Maximum wait time for the API."
+msgstr "Tiempo de espera máximo para la API."
+
+msgid "Save Settings"
+msgstr "Guardar Configuración"
+
+msgid "How to use"
+msgstr "Cómo usar"
+
+msgid "The plugin automatically detects Bible references in your posts. When hovering over a reference, a tooltip will display the verse text."
+msgstr "El plugin detecta automáticamente referencias bíblicas en tus publicaciones. Al pasar el ratón sobre una referencia, un tooltip mostrará el texto del versículo."
+
+msgid "Supported formats:"
+msgstr "Formatos soportados:"
+
+msgid "John 3:16"
+msgstr "Juan 3:16"
+
+msgid "Single verse"
+msgstr "Versículo único"
+
+msgid "Alternative format"
+msgstr "Formato alternativo"
+
+msgid "Verse range"
+msgstr "Rango de versículos"
+
+msgid "Abbreviation"
+msgstr "Abreviatura"
+
+msgid "Entire chapter"
+msgstr "Capítulo completo"
+
+msgid "Configure auto-linking for various elements in your content."
+msgstr "Configure enlaces automáticos para varios elementos en su contenido."
+
+msgid "Link the featured image to Midvash"
+msgstr "Enlazar la imagen destacada a Midvash"
+
+msgid "Auto-link the word \"Bíblia\" to Midvash"
+msgstr "Enlazar automáticamente la palabra \"Biblia\" a Midvash"
+
+msgid "Auto-link names of Bible versions mentioned in text"
+msgstr "Enlazar automáticamente nombres de versiones bíblicas mencionados en el texto"
+
+msgid "Auto-link dictionary terms mentioned in text"
+msgstr "Enlazar automáticamente términos del diccionario mencionados en el texto"
+
+msgid "Auto-link biblical characters mentioned in text"
+msgstr "Enlazar automáticamente personajes bíblicos mencionados en el texto"
+
+msgid "Auto-link standalone Bible book names mentioned in text"
+msgstr "Enlazar automáticamente nombres de libros bíblicos mencionados en el texto"
+
+msgid "Read %s on Midvash"
+msgstr "Leer %s en Midvash"
+
+msgid "General"
+msgstr "General"
+
+msgid "Cache & Performance"
+msgstr "Caché & Rendimiento"
+
+msgid "Bíblia Online"
+msgstr "Biblia Online"
+
+msgid "Significado de %s"
+msgstr "Significado de %s"
+
+msgid "Mais sobre %s"
+msgstr "Más sobre %s"
+
+msgid "John 3.16"
+msgstr "Juan 3.16"
+
+msgid "John 3:16-18"
+msgstr "Juan 3:16-18"
+
+msgid "Gn 1:1"
+msgstr "Gn 1:1"
+
+msgid "Psalms 23"
+msgstr "Salmos 23"
