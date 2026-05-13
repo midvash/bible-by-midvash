@@ -272,7 +272,7 @@ class BBM_Admin
         }
 
         if (isset($input['locale'])) {
-            $valid_locales = array('pt-br', 'en', 'es');
+            $valid_locales = array('pt-br', 'en', 'es', 'fr', 'de', 'it', 'ru', 'ko', 'zh');
             $new_locale = sanitize_text_field($input['locale']);
             $new_locale = in_array($new_locale, $valid_locales) ? $new_locale : 'pt-br';
             $new_locale = BBM_Books::normalize_locale($new_locale);
@@ -417,6 +417,36 @@ class BBM_Admin
                 'name' => 'Español',
                 'flag' => '🇪🇸',
                 'default_version' => 'ntv'
+            ),
+            'fr' => array(
+                'name' => 'Français',
+                'flag' => '🇫🇷',
+                'default_version' => 'lsg'
+            ),
+            'de' => array(
+                'name' => 'Deutsch',
+                'flag' => '🇩🇪',
+                'default_version' => 'luth1912'
+            ),
+            'it' => array(
+                'name' => 'Italiano',
+                'flag' => '🇮🇹',
+                'default_version' => 'nri'
+            ),
+            'ru' => array(
+                'name' => 'Русский',
+                'flag' => '🇷🇺',
+                'default_version' => 'synodal'
+            ),
+            'ko' => array(
+                'name' => '한국어',
+                'flag' => '🇰🇷',
+                'default_version' => 'kor'
+            ),
+            'zh' => array(
+                'name' => '中文',
+                'flag' => '🇨🇳',
+                'default_version' => 'cuv'
             ),
         );
         ?>
@@ -790,11 +820,17 @@ class BBM_Admin
                 
                 if (!localeSelect || !versaoSelect) return;
                 
-                // Default versions by locale
+                // Default versions by locale (kept in sync with BBM_Books::DEFAULT_VERSIONS)
                 const defaultVersions = {
                     'pt-br': 'nvt',
                     'en': 'nlt',
-                    'es': 'ntv'
+                    'es': 'ntv',
+                    'fr': 'lsg',
+                    'de': 'luth1912',
+                    'it': 'nri',
+                    'ru': 'synodal',
+                    'ko': 'kor',
+                    'zh': 'cuv'
                 };
                 
                 function updateVersions(locale) {

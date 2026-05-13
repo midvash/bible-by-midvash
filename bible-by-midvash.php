@@ -3,7 +3,7 @@
  * Plugin Name: Bible by Midvash
  * Plugin URI:  https://wordpress.midvash.com
  * Description: Automatically identifies Bible references in posts and creates links with tooltips via the Midvash service.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Neto Gregório
  * Author URI: https://www.netogregorio.com.br
  * License: GPL v2 or later
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants
-define('BBM_VERSION', '0.1.0');
+define('BBM_VERSION', '0.2.0');
 define('BBM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('BBM_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('BBM_API_BASE_URL', 'https://api.midvash.com');
@@ -117,7 +117,7 @@ function bbm_enqueue_assets()
         true
     );
 
-    // Translations for tooltip
+    // Translations for tooltip (frontend strings — passed to JS, not loaded from .mo)
     $translations = array(
         'pt-br' => array(
             'read_more' => 'Ler mais',
@@ -130,6 +130,30 @@ function bbm_enqueue_assets()
         'en' => array(
             'read_more' => 'Read more',
             'verse_unavailable' => 'Verse currently unavailable',
+        ),
+        'fr' => array(
+            'read_more' => 'Lire plus',
+            'verse_unavailable' => 'Verset actuellement indisponible',
+        ),
+        'de' => array(
+            'read_more' => 'Mehr lesen',
+            'verse_unavailable' => 'Vers derzeit nicht verfügbar',
+        ),
+        'it' => array(
+            'read_more' => 'Leggi di più',
+            'verse_unavailable' => 'Versetto attualmente non disponibile',
+        ),
+        'ru' => array(
+            'read_more' => 'Читать далее',
+            'verse_unavailable' => 'Стих временно недоступен',
+        ),
+        'ko' => array(
+            'read_more' => '더 읽기',
+            'verse_unavailable' => '구절을 현재 사용할 수 없습니다',
+        ),
+        'zh' => array(
+            'read_more' => '阅读更多',
+            'verse_unavailable' => '经文暂时无法显示',
         ),
     );
     
