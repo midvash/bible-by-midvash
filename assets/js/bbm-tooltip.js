@@ -5,7 +5,6 @@
  * Fetches verse content via AJAX and displays in a styled tooltip
  * 
  * @package Bible_by_Midvash
- * @version 1.0.0
  */
 
 (function() {

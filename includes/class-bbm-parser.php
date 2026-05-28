@@ -127,14 +127,12 @@ class BBM_Parser {
 	 * Replaces the reference with a link and data attributes for tooltip
 	 */
 	public function replace_reference( $matches ) {
-		$original  = $matches[0];
-		$chapter   = isset( $matches[2] ) ? intval( $matches[2] ) : 0;
-		$verse_raw = isset( $matches[3] ) && '' !== $matches[3] ? intval( $matches[3] ) : null;
-		$verse_end = isset( $matches[4] ) && '' !== $matches[4] ? intval( $matches[4] ) : null;
+		$original = $matches[0];
 
-		// Reconstruct a normalized reference string for the centralized parser
-		// (we already have the parts from the matching regex, but parse_reference
-		// re-runs lookup with accent fallback, chapter clamping, etc.).
+		// Delegate to the centralized parser — it re-runs the (cheap) regex on
+		// the original substring and adds accent fallback + chapter validation
+		// against the book's known chapter count. Sharing this path with the
+		// API client and the Gutenberg block keeps behaviour aligned.
 		$parsed = BBM_Books::parse_reference( $original );
 		if ( ! $parsed ) {
 			return $original;

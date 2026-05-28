@@ -49,12 +49,18 @@ function bbm_uninstall_cleanup() {
 	// there is no bulk WordPress API for "delete every transient matching
 	// bbm_*". Caching the result is meaningless on uninstall (we are wiping
 	// state, not reading it), so the NoCaching warning is also intentional.
-    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-	$wpdb->query(
-		"DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_bbm\_%' ESCAPE '\\\\'"
-	);
-    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-	$wpdb->query(
-		"DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_timeout\_bbm\_%' ESCAPE '\\\\'"
-	);
+	//
+	// Note: $wpdb->esc_like() escapes `_` and `%` so the underscores in our
+	// prefix are treated as literals, not LIKE wildcards. An earlier version
+	// used raw `\_transient\_bbm\_` with `ESCAPE '\\'` which MySQL parsed as
+	// `_transient_bbm_` (underscores are 1-char wildcards by default) — that
+	// "worked" only because the literal `transient` between them made
+	// accidental matches impossible. The prepare()+esc_like() form is the
+	// canonical pattern.
+	$prefix_value   = $wpdb->esc_like( '_transient_bbm_' ) . '%';
+	$prefix_timeout = $wpdb->esc_like( '_transient_timeout_bbm_' ) . '%';
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $prefix_value ) );
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $prefix_timeout ) );
 }
