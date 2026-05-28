@@ -8,147 +8,157 @@
  * @package Bible_by_Midvash
  */
 
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-class BBM_Block
-{
-    public function init()
-    {
-        add_action('init', array($this, 'register_block'));
-        add_action('enqueue_block_editor_assets', array($this, 'enqueue_editor_assets'));
-    }
+class BBM_Block {
 
-    /**
-     * Register the block type with its attributes and render callback.
-     */
-    public function register_block()
-    {
-        if (!function_exists('register_block_type')) {
-            return;
-        }
+	public function init() {
+		add_action( 'init', array( $this, 'register_block' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
+	}
 
-        register_block_type('bible-by-midvash/verse', array(
-            'render_callback' => array($this, 'render'),
-            'attributes'      => array(
-                'reference'      => array('type' => 'string',  'default' => ''),
-                'version'        => array('type' => 'string',  'default' => ''),
-                'locale'         => array('type' => 'string',  'default' => ''),
-                'show_reference' => array('type' => 'boolean', 'default' => true),
-                'link_verse'     => array('type' => 'boolean', 'default' => true),
-            ),
-        ));
-    }
+	/**
+	 * Register the block type with its attributes and render callback.
+	 */
+	public function register_block() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
 
-    /**
-     * Enqueue the block JS (editor only).
-     */
-    public function enqueue_editor_assets()
-    {
-        wp_enqueue_script(
-            'bbm-block',
-            BBM_PLUGIN_URL . 'assets/js/bbm-block.js',
-            array('wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-i18n'),
-            BBM_VERSION,
-            true
-        );
+		register_block_type(
+			'bible-by-midvash/verse',
+			array(
+				'render_callback' => array( $this, 'render' ),
+				'attributes'      => array(
+					'reference'      => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'version'        => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'locale'         => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'show_reference' => array(
+						'type'    => 'boolean',
+						'default' => true,
+					),
+					'link_verse'     => array(
+						'type'    => 'boolean',
+						'default' => true,
+					),
+				),
+			)
+		);
+	}
 
-        wp_set_script_translations('bbm-block', 'bible-by-midvash');
-    }
+	/**
+	 * Enqueue the block JS (editor only).
+	 */
+	public function enqueue_editor_assets() {
+		wp_enqueue_script(
+			'bbm-block',
+			BBM_PLUGIN_URL . 'assets/js/bbm-block.js',
+			array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-i18n' ),
+			BBM_VERSION,
+			true
+		);
 
-    /**
-     * Server-side render callback.
-     *
-     * @param array $atts Block attributes.
-     * @return string HTML output.
-     */
-    public function render($atts)
-    {
-        $reference = isset($atts['reference']) ? sanitize_text_field($atts['reference']) : '';
-        if (!$reference) {
-            return '';
-        }
+		wp_set_script_translations( 'bbm-block', 'bible-by-midvash' );
+	}
 
-        $options = get_option('bbm_options', array());
-        $locale  = !empty($atts['locale'])
-            ? BBM_Books::normalize_locale(sanitize_text_field($atts['locale']))
-            : (isset($options['locale']) ? $options['locale'] : 'pt-br');
-        $version = !empty($atts['version'])
-            ? strtolower(sanitize_text_field($atts['version']))
-            : (isset($options['versao']) ? $options['versao'] : BBM_Books::get_default_version($locale));
-        $show_ref = isset($atts['show_reference']) ? (bool) $atts['show_reference'] : true;
-        $link     = isset($atts['link_verse'])     ? (bool) $atts['link_verse']     : true;
+	/**
+	 * Server-side render callback.
+	 *
+	 * @param array $atts Block attributes.
+	 * @return string HTML output.
+	 */
+	public function render( $atts ) {
+		$reference = isset( $atts['reference'] ) ? sanitize_text_field( $atts['reference'] ) : '';
+		if ( ! $reference ) {
+			return '';
+		}
 
-        $api  = new BBM_API();
-        $data = $api->get_verse($reference, $version);
+		$options  = get_option( 'bbm_options', array() );
+		$locale   = ! empty( $atts['locale'] )
+			? BBM_Books::normalize_locale( sanitize_text_field( $atts['locale'] ) )
+			: ( isset( $options['locale'] ) ? $options['locale'] : 'pt-br' );
+		$version  = ! empty( $atts['version'] )
+			? strtolower( sanitize_text_field( $atts['version'] ) )
+			: ( isset( $options['versao'] ) ? $options['versao'] : BBM_Books::get_default_version( $locale ) );
+		$show_ref = isset( $atts['show_reference'] ) ? (bool) $atts['show_reference'] : true;
+		$link     = isset( $atts['link_verse'] ) ? (bool) $atts['link_verse'] : true;
 
-        if (!$data || empty($data['text'])) {
-            return '<p class="bbm-verse bbm-verse--error">'
-                 . esc_html__('Verse currently unavailable.', 'bible-by-midvash')
-                 . '</p>';
-        }
+		$api  = new BBM_API();
+		$data = $api->get_verse( $reference, $version );
 
-        $text    = $data['text'];
-        $ref_str = isset($data['reference']) ? $data['reference'] : $reference;
+		if ( ! $data || empty( $data['text'] ) ) {
+			return '<p class="bbm-verse bbm-verse--error">'
+				. esc_html__( 'Verse currently unavailable.', 'bible-by-midvash' )
+				. '</p>';
+		}
 
-        // Build URL
-        $url = '';
-        if ($link) {
-            $url = $this->build_url($reference, $locale, $version);
-        }
+		$text    = $data['text'];
+		$ref_str = isset( $data['reference'] ) ? $data['reference'] : $reference;
 
-        $version_badge = '<span class="bbm-verse__version">' . esc_html(strtoupper($version)) . '</span>';
-        $ref_html = '';
-        if ($show_ref) {
-            if ($link && $url) {
-                $ref_html = '<cite class="bbm-verse__reference">'
-                          . '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" class="bbm-verse__link" itemprop="url">'
-                          . esc_html($ref_str) . '</a> ' . $version_badge
-                          . '</cite>';
-            } else {
-                $ref_html = '<cite class="bbm-verse__reference">' . esc_html($ref_str) . ' ' . $version_badge . '</cite>';
-            }
-        }
+		// Build URL
+		$url = '';
+		if ( $link ) {
+			$url = $this->build_url( $reference, $locale, $version );
+		}
 
-        return '<blockquote class="bbm-verse wp-block-bible-by-midvash-verse" itemscope itemtype="https://schema.org/Quotation">'
-             . '<p class="bbm-verse__text" itemprop="text">' . esc_html($text) . '</p>'
-             . $ref_html
-             . '</blockquote>';
-    }
+		$version_badge = '<span class="bbm-verse__version">' . esc_html( strtoupper( $version ) ) . '</span>';
+		$ref_html      = '';
+		if ( $show_ref ) {
+			if ( $link && $url ) {
+				$ref_html = '<cite class="bbm-verse__reference">'
+							. '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer" class="bbm-verse__link" itemprop="url">'
+							. esc_html( $ref_str ) . '</a> ' . $version_badge
+							. '</cite>';
+			} else {
+				$ref_html = '<cite class="bbm-verse__reference">' . esc_html( $ref_str ) . ' ' . $version_badge . '</cite>';
+			}
+		}
 
-    /**
-     * Builds the Midvash URL for a given reference + locale + version.
-     *
-     * @param string $reference Raw reference text (e.g. "John 3:16").
-     * @param string $locale    Normalized locale code.
-     * @param string $version   Version slug.
-     * @return string URL or empty string if reference cannot be parsed.
-     */
-    private function build_url($reference, $locale, $version)
-    {
-        if (!preg_match('/^(.+?)\s+(\d{1,3})(?:[:\.](\d{1,3}))?(?:\s*[-–]\s*(\d{1,3}))?$/iu', $reference, $m)) {
-            return '';
-        }
+		return '<blockquote class="bbm-verse wp-block-bible-by-midvash-verse" itemscope itemtype="https://schema.org/Quotation">'
+			. '<p class="bbm-verse__text" itemprop="text">' . esc_html( $text ) . '</p>'
+			. $ref_html
+			. '</blockquote>';
+	}
 
-        $book_input = mb_strtolower(trim($m[1]));
-        $lookup     = BBM_Books::get_lookup_table();
+	/**
+	 * Builds the Midvash URL for a given reference + locale + version.
+	 *
+	 * Delegates parsing to BBM_Books::parse_reference() so book-name lookup,
+	 * accent tolerance and chapter validation stay consistent across the
+	 * parser, the API client and this block.
+	 *
+	 * @param string $reference Raw reference text (e.g. "John 3:16").
+	 * @param string $locale    Normalized locale code.
+	 * @param string $version   Version slug.
+	 * @return string URL or empty string if reference cannot be parsed.
+	 */
+	private function build_url( $reference, $locale, $version ) {
+		$parsed = BBM_Books::parse_reference( $reference );
+		if ( ! $parsed ) {
+			return '';
+		}
 
-        if (!isset($lookup[$book_input])) {
-            return '';
-        }
+		$book_slug = BBM_Books::get_book_slug( $parsed['book_id'], $locale );
+		$url       = BBM_SITE_URL . '/' . $locale . '/' . $version . '/' . $book_slug . '/' . $parsed['chapter'];
 
-        $book_id   = $lookup[$book_input];
-        $book_slug = BBM_Books::get_book_slug($book_id, $locale);
-        $url       = BBM_SITE_URL . '/' . $locale . '/' . $version . '/' . $book_slug . '/' . $m[2];
+		if ( $parsed['verse'] ) {
+			$url .= '/' . $parsed['verse'];
+			if ( $parsed['verse_end'] && $parsed['verse_end'] !== $parsed['verse'] ) {
+				$url .= '-' . $parsed['verse_end'];
+			}
+		}
 
-        if (!empty($m[3])) {
-            $url .= '/' . $m[3];
-            if (!empty($m[4])) {
-                $url .= '-' . $m[4];
-            }
-        }
-
-        return $url;
-    }
+		return $url;
+	}
 }
