@@ -2,13 +2,13 @@
 Contributors: netogregorio
 Tags: bible, biblia, bible verse, tooltip, gutenberg block
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: 0.6.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Auto-detect Bible references in posts and pages, turning them into beautiful links with hover tooltips that show the full verse — no setup, no API key.
+Bible references in posts become hover-tooltip links with full verse text. 9 languages, 50+ versions, no setup, no API key.
 
 == Description ==
 
