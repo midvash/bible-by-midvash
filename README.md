@@ -5,7 +5,7 @@
 
 Auto-detect Bible references in your WordPress posts and turn them into hover-tooltip links — no API key, no signup, no setup beyond installing the plugin.
 
-> Download and docs at **[wordpress.midvash.com](https://wordpress.midvash.com)**
+> Download and docs at **[midvash.app/wordpress-plugin](https://midvash.app/wordpress-plugin)**
 
 ## What it does
 
@@ -17,9 +17,9 @@ Auto-detect Bible references in your WordPress posts and turn them into hover-to
 
 ## Install
 
-### From the [wordpress.midvash.com](https://wordpress.midvash.com) site
+### From the [midvash.app/wordpress-plugin](https://midvash.app/wordpress-plugin) site
 
-1. Download the latest `.zip` from [wordpress.midvash.com](https://wordpress.midvash.com)
+1. Download the latest `.zip` from [midvash.app/wordpress-plugin](https://midvash.app/wordpress-plugin)
 2. WordPress admin → Plugins → Add New → Upload Plugin → select the zip
 3. Activate, configure under **Settings → Bible by Midvash**
 
@@ -34,7 +34,7 @@ Then activate in the WordPress admin.
 
 ## Updates
 
-Auto-update is built in via [Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker). The plugin checks `wordpress.midvash.com/update-info.json` every ~12 hours and surfaces a standard "Update available" banner in your WordPress admin, like plugins from the official directory.
+Auto-update is built in via [Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker). The plugin checks `midvash.app/api/wordpress/update-info.json` every ~12 hours and surfaces a standard "Update available" banner in your WordPress admin, like plugins from the official directory.
 
 ## Architecture
 
