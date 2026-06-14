@@ -11,7 +11,7 @@ Auto-detect Bible references in your WordPress posts and turn them into hover-to
 
 - Recognizes references like `John 3:16`, `Jo 3.16`, `Salmos 23`, `Rom 8:28-30` — in **English, Portuguese, and Spanish**, with accents and book abbreviations.
 - Replaces them with subtle links to [midvash.com](https://midvash.com) on the frontend, opening the full verse in a hover tooltip.
-- 35+ Bible versions to pick as your site default (NVT, NVI, NLT, KJV, RVR1960, and more).
+- 38 Bible versions to pick as your site default (NVT, NVI, NLT, KJV, RVR1960, and more).
 - Customizable link color, underline style, and tooltip behavior.
 - Free forever, no account required.
 
@@ -27,7 +27,7 @@ Auto-detect Bible references in your WordPress posts and turn them into hover-to
 
 ```bash
 cd wp-content/plugins/
-git clone https://github.com/midvash/bible-by-midvash.git
+git clone https://github.com/midvash/bible-wordpress-plugin.git bible-by-midvash
 ```
 
 Then activate in the WordPress admin.
@@ -76,7 +76,7 @@ GPL v2 or later — see [LICENSE](LICENSE). Vendored libraries retain their orig
 
 ## Related projects
 
-- **[bible-data](https://github.com/midvash/bible-data)** — the public-domain Bible dataset (33 versions, 23 languages) behind the Midvash reader
+- **[bible-data](https://github.com/midvash/bible-data)** — the public-domain Bible dataset (33 versions, 22 languages) behind the Midvash reader
 - **[bible-data-js](https://github.com/midvash/bible-data-js)** — TypeScript SDK for the dataset
 - **[bible-cross-references](https://github.com/midvash/bible-cross-references)** — 453 curated thematic cross-references
 - **[Midvash](https://midvash.com)** — the online Bible reader this plugin links to
@@ -97,3 +97,4 @@ Part of [**Midvash**](https://midvash.com) — a free Bible reading & study plat
 | 📦 **Open data** | [`bible-data`](https://github.com/midvash/bible-data) · [`bible-data-js`](https://github.com/midvash/bible-data-js) · [`bible-cross-references`](https://github.com/midvash/bible-cross-references) |
 
 <sub>Free & open, built by [Midvash](https://midvash.com) · [midvash.com](https://midvash.com) · [midvash.app](https://midvash.app)</sub>
+
